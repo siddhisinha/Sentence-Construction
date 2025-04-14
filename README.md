@@ -1,54 +1,25 @@
-# React + TypeScript + Vite
+# Sentence Completion Quiz Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This is a sentence completion quiz web app designed to test users' ability to fill in blanks in sentences with the correct words. The app has the following features:
 
-Currently, two official plugins are available:
+- Display sentences with blanks and 4 word options.
+- Allow users to fill and unfill blanks.
+- A 15-second timer per question.
+- Auto-next on timer end.
+- Enable 'Next' only when all blanks are filled.
+- The quiz data is imported from a local questions.json file and used within the app.
+- Show a final feedback screen with correct/incorrect answers and total score.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Timer**: Displays a countdown timer for each question.
+- **Sentence Constructor**: Sentences with missing words are shown, and users can select one of the 4 word options.
+- **State Management**: Uses Redux Toolkit to manage the state of the application.
+- **JSON Data**: The quiz data is imported directly from a local questions.json file and used within the app.
 
-## Expanding the ESLint configuration
+## Components
+- **TimerAndQuit**: Handles the timer countdown and quit functionality.
+- **QuestionText**: Displays the sentence with blanks.
+- **OptionsGrid**: Displays the word options for the user to choose from.
+- **NextButton**: Moves to the next question after the current one is answered.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
